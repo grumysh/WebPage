@@ -6,7 +6,8 @@ export const links = {
   email: 'anlramirezs11@gmail.com',
   github: 'https://github.com/grumysh',
   gitlab: 'https://gitlab.com/grumysh',
-  linkedin: 'https://www.linkedin.com/in/grumysh',
+  linkedin: 'https://www.linkedin.com/in/grumysh/',
+  instagram: 'https://www.instagram.com/anlramirezs/',
   x: 'https://x.com/Grumysh',
   cv: './cv/Andrea_Ramirez_CV.pdf',
 };
@@ -22,15 +23,19 @@ export const ui = {
     cv: { es: 'Descargar CV', en: 'Download CV' },
   },
   loading: { es: 'Cargando a Grumysh…', en: 'Loading Grumysh…' },
+  pet: { es: 'Stitch\nmi perrito ♥', en: 'Stitch\nmy doggo ♥' },
+  skip: { es: 'Saltar al contenido', en: 'Skip to content' },
+  mainNav: { es: 'Principal', en: 'Main' },
+  language: { es: 'Idioma', en: 'Language' },
   bubble: {
     hero: { es: '¡Hola! ✦', en: 'Hi there! ✦' },
     about: { es: 'Te cuento un poco…', en: 'Let me tell you…' },
     projects: { es: 'Mira lo que construí', en: "Look what I've built" },
-    career: { es: '¡Subiendo nivel!', en: 'Leveling up!' },
+    career: { es: '¡Subiendo de nivel!', en: 'Leveling up!' },
     awards: { es: '¡Yay!', en: 'Yay!' },
     badges: { es: 'Siempre aprendiendo', en: 'Always learning' },
-    contact: { es: '¿Hablamos?', en: "Let's talk?" },
-    footer: { es: 'Zzz…', en: 'Zzz…' },
+    contact: { es: '¿Hablamos?', en: 'Shall we talk?' },
+    footer: { es: '¡Ñam, ñam!', en: 'Nom nom!' },
   } as Record<string, T>,
 };
 
@@ -38,7 +43,7 @@ export const hero = {
   hello: { es: '¡Hola! Soy', en: "Hi! I'm" },
   name: 'Andrea Ramírez',
   role: {
-    es: 'Ingeniera de Software Full Stack & Tech Lead',
+    es: 'Ingeniera de Software Full Stack y Tech Lead',
     en: 'Full Stack Software Engineer & Tech Lead',
   },
   lead: {
@@ -46,12 +51,12 @@ export const hero = {
     en: 'For 10+ years I have been turning complex problems into production-ready products: architecture, APIs, frontend, cloud and Web3. I love games and things made with care.',
   },
   available: {
-    es: 'Disponible para empleo remoto y proyectos freelance',
-    en: 'Open to remote roles and freelance projects',
+    es: 'Disponible para empleo remoto o híbrido y proyectos freelance',
+    en: 'Open to remote or hybrid roles and freelance projects',
   },
   ctaProjects: { es: 'Ver proyectos', en: 'See projects' },
   ctaContact: { es: 'Hablemos', en: "Let's talk" },
-  location: { es: 'Bogotá, Colombia · Remoto', en: 'Bogotá, Colombia · Remote' },
+  location: { es: 'Bogotá, Colombia · Remoto o híbrido', en: 'Bogotá, Colombia · Remote or hybrid' },
 };
 
 export const stats: { value: string; label: T; color: string }[] = [
@@ -66,8 +71,8 @@ export const about = {
   title: { es: 'Ingeniera de día, artesana siempre', en: 'Engineer by day, maker always' },
   body: [
     {
-      es: 'Soy Ingeniera de Sistemas de la Universidad Distrital y cofundadora de Ashara Studios. Me muevo cómoda en todo el stack: diseño el modelo de datos, construyo la API, armo el frontend y lo despliego en AWS. Como Tech Lead he coordinado equipos de artistas, diseñadores e ingenieros.',
-      en: 'I am a Systems Engineer from Universidad Distrital and co-founder of Ashara Studios. I am comfortable across the whole stack: I design the data model, build the API, craft the frontend and ship it on AWS. As Tech Lead I have coordinated teams of artists, designers and engineers.',
+      es: 'Soy Ingeniera de Sistemas de la Universidad Distrital y cofundadora de Ashara Studios. Me siento cómoda en todo el stack: diseño el modelo de datos, construyo la API, armo el frontend y lo despliego en AWS. Como Tech Lead he coordinado equipos de artistas, diseñadores e ingenieros.',
+      en: 'I am a Systems Engineer from Universidad Distrital and co-founder of Ashara Studios. I am comfortable across the whole stack: I design the data model, build the API, craft the frontend and ship it on AWS. As a Tech Lead I have coordinated teams of artists, designers and engineers.',
     },
     {
       es: 'Hoy trabajo a diario con agentes de IA (Claude Code, Copilot, Gemini) y me estoy especializando en integrarlos de forma headless en mis pipelines.',
@@ -78,7 +83,7 @@ export const about = {
   words: [
     { word: { es: 'Responsable', en: 'Responsible' }, note: { es: 'Si me comprometo, se entrega.', en: 'If I commit, it ships.' }, color: 'pink' },
     { word: { es: 'Cuidadosa', en: 'Careful' }, note: { es: 'Los detalles importan, en el código y en el bordado.', en: 'Details matter, in code and in embroidery.' }, color: 'purple' },
-    { word: { es: 'Realista', en: 'Realistic' }, note: { es: 'Planes que se pueden cumplir y números honestos.', en: 'Plans that can be met and honest numbers.' }, color: 'mint' },
+    { word: { es: 'Realista', en: 'Realistic' }, note: { es: 'Planes que se pueden cumplir y números honestos.', en: 'Achievable plans and honest numbers.' }, color: 'mint' },
   ],
   hobbiesTitle: { es: 'Fuera del código', en: 'Away from the keyboard' },
   hobbiesLead: {
@@ -88,11 +93,11 @@ export const about = {
   hobbies: [
     // en orden de lo que más hago
     { id: 'embroidery', label: { es: 'Bordar en punto de cruz', en: 'Cross-stitch' }, note: { es: 'Puntada a puntada, sin afán.', en: 'Stitch by stitch, no rush.' } },
-    { id: 'sew', label: { es: 'Coser', en: 'Sewing' }, note: { es: 'Si lo imagino, lo armo.', en: 'If I can picture it, I can make it.' } },
     { id: 'paint', label: { es: 'Pintar cerámicas', en: 'Painting ceramics' }, note: { es: 'Color y calma lejos de la pantalla.', en: 'Color and calm away from screens.' } },
     { id: 'voxel', label: { es: 'Voxel art', en: 'Voxel art' }, note: { es: 'Por puro gusto. Así nació Grumysh.', en: 'Just for fun. That is how Grumysh was born.' } },
     { id: 'beads', label: { es: 'Hama beads', en: 'Hama beads' }, note: { es: 'Pixel art cuenta por cuenta.', en: 'Pixel art, one bead at a time.' } },
     { id: 'anime', label: { es: 'Anime', en: 'Anime' }, note: { es: 'Me gusta el anime.', en: 'I like anime.' } },
+    { id: 'run', label: { es: 'Trotar', en: 'Running' }, note: { es: 'Me gustan los retos: mi primera carrera fue un 10K.', en: 'I love a challenge: my first race was a 10K.' } },
   ],
   board: {
     title: { es: 'Mi tablero de hama', en: 'My hama pegboard' },
@@ -102,14 +107,77 @@ export const about = {
     eraser: { es: 'Borrador', en: 'Eraser' },
   },
   stackTitle: { es: 'Mi caja de herramientas', en: 'My toolbox' },
+  // icon: logo de Simple Icons; glyph: iniciales cuando la marca no tiene logo disponible
   stack: [
-    { group: { es: 'Backend', en: 'Backend' }, items: ['Node.js', 'Express', 'TypeScript', 'Python', 'REST', 'Serverless'] },
-    { group: { es: 'Frontend', en: 'Frontend' }, items: ['React', 'Redux', 'Vite', 'Angular', 'Vue / Nuxt', 'Three.js'] },
-    { group: { es: 'Datos', en: 'Data' }, items: ['MongoDB', 'PostgreSQL', 'MariaDB', 'SQL'] },
-    { group: { es: 'Nube y DevOps', en: 'Cloud & DevOps' }, items: ['AWS EC2 · ECS · ECR · S3', 'Secrets Manager', 'Docker', 'CI/CD GitLab · GitHub'] },
-    { group: { es: 'IA', en: 'AI' }, items: ['Claude Code', 'GitHub Copilot', 'Gemini', 'Tesseract.js OCR'] },
-    { group: { es: 'Web3 y juegos', en: 'Web3 & games' }, items: ['thirdweb', 'Polygon', 'Smart contracts', 'Unity', 'Phaser', 'VoxEdit'] },
-  ],
+    {
+      group: { es: 'Backend', en: 'Backend' },
+      color: 'mint',
+      items: [
+        { name: 'Node.js', icon: 'nodedotjs' },
+        { name: 'Express', icon: 'express' },
+        { name: 'TypeScript', icon: 'typescript' },
+        { name: 'Python', icon: 'python' },
+        { name: 'REST APIs', glyph: 'API' },
+        { name: 'Serverless', icon: 'serverless' },
+      ],
+    },
+    {
+      group: { es: 'Frontend', en: 'Frontend' },
+      color: 'butter',
+      items: [
+        { name: 'React', icon: 'react' },
+        { name: 'Redux', icon: 'redux' },
+        { name: 'Vite', icon: 'vite' },
+        { name: 'Angular', icon: 'angular' },
+        { name: 'Vue.js', icon: 'vuedotjs' },
+        { name: 'Nuxt', icon: 'nuxt' },
+        { name: 'Three.js', icon: 'threedotjs' },
+      ],
+    },
+    {
+      group: { es: 'Datos', en: 'Data' },
+      color: 'sky',
+      items: [
+        { name: 'MongoDB', icon: 'mongodb' },
+        { name: 'PostgreSQL', icon: 'postgresql' },
+        { name: 'MariaDB', icon: 'mariadb' },
+        { name: 'MySQL', icon: 'mysql' },
+      ],
+    },
+    {
+      group: { es: 'Nube y DevOps', en: 'Cloud & DevOps' },
+      color: 'coral',
+      items: [
+        { name: 'AWS', glyph: 'AWS', detail: 'EC2 · ECS · ECR · S3 · Secrets Manager' },
+        { name: 'Docker', icon: 'docker' },
+        { name: 'GitLab CI/CD', icon: 'gitlab' },
+        { name: 'GitHub', icon: 'github' },
+        { name: 'Git', icon: 'git' },
+      ],
+    },
+    {
+      group: { es: 'IA', en: 'AI' },
+      color: 'pink',
+      items: [
+        { name: 'Claude Code', icon: 'claude' },
+        { name: 'GitHub Copilot', icon: 'githubcopilot' },
+        { name: 'Gemini', icon: 'googlegemini' },
+        { name: 'Tesseract.js OCR', glyph: 'OCR' },
+      ],
+    },
+    {
+      group: { es: 'Web3 y juegos', en: 'Web3 & games' },
+      color: 'purple',
+      items: [
+        { name: 'thirdweb', icon: 'thirdweb' },
+        { name: 'Polygon', icon: 'polygon' },
+        { name: 'Smart contracts', glyph: 'SC' },
+        { name: 'Unity', icon: 'unity' },
+        { name: 'Phaser', glyph: 'PH' },
+        { name: 'VoxEdit', glyph: 'VX' },
+      ],
+    },
+  ] as { group: T; color: string; items: { name: string; icon?: string; glyph?: string; detail?: string }[] }[],
 };
 
 export type Project = {
@@ -141,8 +209,8 @@ export const projects: Project[] = [
     role: { es: 'Tech Lead · Arquitectura y full stack', en: 'Tech Lead · Architecture & full stack' },
     period: { es: '2024 – 2025', en: '2024 – 2025' },
     summary: {
-      es: 'Plataforma multi-creador de misiones, recompensas y métricas para las comunidades de The Sandbox. Presenté la propuesta (SIP-24) ante The Sandbox DAO y obtuvo USD 85.000 de financiación.',
-      en: 'Multi-creator platform for missions, rewards and metrics for The Sandbox communities. I pitched the proposal (SIP-24) to The Sandbox DAO and it secured USD 85,000 in funding.',
+      es: 'Plataforma de misiones, recompensas y métricas para que varios creadores gestionen sus comunidades en The Sandbox. Presenté la propuesta (SIP-24) ante The Sandbox DAO y obtuvo USD 85.000 de financiación.',
+      en: 'A platform for missions, rewards and metrics that lets multiple creators run their communities in The Sandbox. I pitched the proposal (SIP-24) to The Sandbox DAO and it secured USD 85,000 in funding.',
     },
     highlights: [
       {
@@ -151,7 +219,7 @@ export const projects: Project[] = [
       },
       {
         es: 'Validación automática de misiones con OCR: aprueba al instante, descarta imágenes inválidas y escala los casos dudosos.',
-        en: 'Automatic mission validation with OCR: instant approvals, invalid images rejected, doubtful cases escalated.',
+        en: 'Automatic mission validation with OCR: it approves instantly, rejects invalid images and escalates doubtful cases.',
       },
       {
         es: 'Su versión inicial llevó al estudio del 8.º al 2.º lugar en el Builder Challenge de The Sandbox.',
@@ -171,11 +239,11 @@ export const projects: Project[] = [
   {
     id: 'nft',
     name: 'New Festival Town',
-    role: { es: 'Backend & infraestructura', en: 'Backend & infrastructure' },
+    role: { es: 'Backend e infraestructura', en: 'Backend & infrastructure' },
     period: { es: '2024 – 2025', en: '2024 – 2025' },
     summary: {
       es: 'Juego como servicio publicado en MiniPay. Desplegué la infraestructura del backend y la base de datos.',
-      en: 'Game-as-a-service published on MiniPay. I deployed the backend infrastructure and database.',
+      en: 'A game-as-a-service published on MiniPay. I deployed its backend infrastructure and database.',
     },
     highlights: [],
     stack: ['Node.js', 'TypeScript', 'MongoDB', 'Cloud'],
@@ -189,8 +257,8 @@ export const projects: Project[] = [
     role: { es: 'Web, API y world building', en: 'Web, API & world building' },
     period: { es: '2022 – 2024', en: '2022 – 2024' },
     summary: {
-      es: 'El juego más grande de The Sandbox por tamaño de mapa y contenido narrativo. Hice su web con conexión a contratos inteligentes, una API serverless alimentada desde Notion y el diseño de sus entornos.',
-      en: 'The largest game in The Sandbox by map size and narrative content. I built its website with smart-contract integration, a serverless API fed from Notion, and designed its environments.',
+      es: 'El juego más grande de The Sandbox por tamaño de mapa y contenido narrativo. Hice su sitio web conectado a contratos inteligentes, una API serverless alimentada desde Notion y el diseño de sus entornos.',
+      en: 'The largest game in The Sandbox by map size and narrative content. I built its website with smart-contract integration and a serverless API fed from Notion, and designed its environments.',
     },
     highlights: [],
     stack: ['React', 'thirdweb', 'Serverless', 'Notion API', 'Game Maker'],
@@ -201,11 +269,11 @@ export const projects: Project[] = [
   {
     id: 'portal',
     name: { es: 'Portal interno', en: 'Internal portal' },
-    role: { es: 'Full stack · v1 sola, v2 con Claude Code', en: 'Full stack · solo v1, v2 with Claude Code' },
+    role: { es: 'Full stack · v1 hecha por mí, v2 con Claude Code', en: 'Full stack · v1 built solo, v2 with Claude Code' },
     period: { es: '2025', en: '2025' },
     summary: {
-      es: 'Portal administrativo con login corporativo y permisos por rol: vacaciones, nómina, certificados, newsletters y métricas de redes. Construí la primera versión yo sola; la segunda la desarrollé con Claude Code, con pruebas unitarias y despliegue en AWS ECS.',
-      en: 'Admin portal with corporate login and role-based permissions: time off, payroll, certificates, newsletters and social metrics. I built the first version on my own; the second one I developed with Claude Code, unit-tested and deployed on AWS ECS.',
+      es: 'Portal administrativo con login corporativo y permisos por rol: vacaciones, nómina, certificados, newsletters y métricas de redes. Construí la primera versión yo sola y la segunda con Claude Code, con pruebas unitarias y despliegue en AWS ECS.',
+      en: 'Admin portal with corporate login and role-based permissions: time off, payroll, certificates, newsletters and social metrics. I built the first version on my own and the second with Claude Code, with unit tests and deployment on AWS ECS.',
     },
     highlights: [],
     stack: ['Node.js', 'TypeScript', 'MongoDB', 'AWS ECS', 'Secrets Manager'],
@@ -232,7 +300,7 @@ export const projects: Project[] = [
   {
     id: 'alerta',
     name: 'Alerta a la Obra',
-    role: { es: 'Base de datos & frontend', en: 'Database & frontend' },
+    role: { es: 'Base de datos y frontend', en: 'Database & frontend' },
     period: { es: '2018', en: '2018' },
     summary: {
       es: 'Plataforma ciudadana para seguir las obras públicas del país: presupuesto, retrasos y estado de entrega, con contratos de SECOP II actualizados cada semana desde datos.gov.co.',
@@ -240,7 +308,7 @@ export const projects: Project[] = [
     },
     highlights: [],
     stack: ['MariaDB', 'JavaScript', 'Open data'],
-    metric: { es: 'Ganador Hackatón Anticorrupción', en: 'Anti-corruption Hackathon winner' },
+    metric: { es: 'Ganador de la Hackatón Anticorrupción', en: 'Anti-Corruption Hackathon winner' },
     color: 'pink',
   },
 ];
@@ -248,69 +316,96 @@ export const projects: Project[] = [
 export const careerIntro = {
   eyebrow: { es: 'Trayectoria', en: 'Career' },
   title: { es: 'Subiendo de nivel desde 2013', en: 'Leveling up since 2013' },
+  more: { es: 'Ver toda mi trayectoria', en: 'See my full career' },
+  less: { es: 'Ver menos', en: 'See less' },
 };
 
-export const career: { period: string; role: T; org: string; note: T; current?: boolean }[] = [
+// early: experiencia desde 2018 hacia atrás, que se muestra con "Ver toda mi trayectoria"
+export const career: { period: string; role: T; org: string; note: T; current?: boolean; early?: boolean }[] = [
   {
     period: '2024 —',
-    role: { es: 'Cofundadora & Tech Lead', en: 'Co-founder & Tech Lead' },
+    role: { es: 'Cofundadora y Tech Lead', en: 'Co-founder & Tech Lead' },
     org: 'Ashara Studios',
     note: {
-      es: 'Lidero todo el desarrollo técnico: arquitectura, datos, nube e integración Web3.',
-      en: 'I lead all technical development: architecture, data, cloud and Web3 integration.',
+      es: 'Lidero el desarrollo técnico: arquitectura, datos, APIs, AWS y Web3. Construí Chrysalis Quest, financiada con USD 85.000 por The Sandbox DAO, y participé en el backend de New Festival Town (~150.000 jugadores).',
+      en: "I lead the studio's technical development: architecture, data, APIs, AWS and Web3. I built Chrysalis Quest, funded with USD 85,000 by The Sandbox DAO, and worked on the backend of New Festival Town (~150,000 players).",
     },
     current: true,
   },
   {
     period: '2022 – 2024',
-    role: { es: 'Desarrolladora Web & Level Designer', en: 'Web Developer & Level Designer' },
+    role: { es: 'Desarrolladora Web y Level Designer', en: 'Web Developer & Level Designer' },
     org: 'Ashara Studios',
-    note: { es: 'Webs Web3, APIs serverless y world building en The Sandbox.', en: 'Web3 sites, serverless APIs and world building in The Sandbox.' },
+    note: {
+      es: 'Hice el sitio web de Tower of Myths con React y thirdweb, una API serverless que servía su contenido desde Notion y el world building del juego en The Sandbox. También construí la aplicación web de NFT Exorcist.',
+      en: 'I built the Tower of Myths website with React and thirdweb, a serverless API serving all its content from Notion, and the game’s world building in The Sandbox. I also built the NFT Exorcist web app.',
+    },
   },
   {
     period: '2021 – 2022',
-    role: { es: 'Cofundadora, COO & Dev', en: 'Co-founder, COO & Dev' },
+    role: { es: 'Cofundadora, COO y desarrolladora', en: 'Co-founder, COO & Developer' },
     org: 'Chrysalis Guild',
     note: {
-      es: '~300 jugadores, 17 personas y ~USD 1M en activos. Automaticé pagos y operaciones.',
-      en: '~300 players, 17 people and ~USD 1M in assets. I automated payouts and operations.',
+      es: 'Cofundé y dirigí una comunidad de juegos blockchain con ~300 jugadores, 17 personas (5 a mi cargo) y ~USD 1M en activos. Reconstruí en Python el sistema de pagos en tokens y construí un bot de trading con Node.js.',
+      en: 'I co-founded and ran a blockchain gaming community with ~300 players, 17 people (5 reporting to me) and ~USD 1M in assets. I rebuilt the token payout system in Python and built a trading bot with Node.js.',
     },
   },
   {
     period: '2020 – 2023',
-    role: { es: 'Voxel Artist & Team Leader', en: 'Voxel Artist & Team Leader' },
+    role: { es: 'Artista voxel y líder de equipo', en: 'Voxel Artist & Team Leader' },
     org: 'The Sandbox',
-    note: { es: 'Activos voxel para el Marketplace; lideré un equipo de 6 artistas.', en: 'Voxel assets for the Marketplace; led a team of 6 artists.' },
+    note: {
+      es: 'Diseñé y animé activos en voxel art con VoxEdit para el Marketplace de The Sandbox. Como líder de la Cell 14, capacité y coordiné a un equipo de 6 artistas para mantener la calidad y la coherencia visual.',
+      en: 'I designed and animated voxel assets with VoxEdit for The Sandbox Marketplace. As Cell 14 leader, I trained and coordinated a team of 6 artists to maintain quality and visual consistency.',
+    },
   },
   {
     period: '2020 – 2021',
     role: { es: 'Desarrolladora Frontend', en: 'Frontend Developer' },
     org: 'Banco de Occidente',
-    note: { es: 'Angular 8 y TypeScript en el sector financiero, con pruebas unitarias.', en: 'Angular 8 and TypeScript in banking, with unit tests.' },
+    note: {
+      es: 'Desarrollé interfaces web con Angular 8 y TypeScript para productos dirigidos a clientes del banco, integradas con sus APIs, y escribí pruebas unitarias con Jasmine y Karma, trabajando con Scrum, Jira y Git.',
+      en: "I built web interfaces with Angular 8 and TypeScript for the bank's customer-facing products, integrated with its APIs, and wrote unit tests with Jasmine and Karma, working with Scrum, Jira and Git.",
+    },
   },
   {
     period: '2019 – 2020',
     role: { es: 'Ingeniera de Software', en: 'Software Engineer' },
     org: 'Universidad Distrital',
-    note: { es: 'Gestión contractual sobre microservicios en AWS.', en: 'Contract management apps on AWS microservices.' },
+    note: {
+      es: 'Construí el frontend de novedades poscontractuales y gran parte del cliente de Evaluación de Proveedores con Angular 8, sobre una arquitectura de microservicios en AWS integrada mediante APIs REST.',
+      en: 'I built the frontend for post-contract amendments and most of the Supplier Evaluation client with Angular 8, on an AWS microservices architecture integrated through REST APIs.',
+    },
   },
   {
     period: '2018 – 2019',
     role: { es: 'Ingeniera de Software', en: 'Software Engineer' },
     org: 'XueColombia',
-    note: { es: 'Tecnología cívica con datos abiertos del Estado.', en: 'Civic tech built on government open data.' },
+    note: {
+      es: 'Desarrollé plataformas de tecnología cívica con datos abiertos del Estado: el frontend de Burócratas y Alerta a la Obra, ganadora de la Hackatón Anticorrupción 2018, incluida su base de datos en MariaDB con datos de SECOP II.',
+      en: 'I built civic tech platforms on government open data: the Burócratas frontend and Alerta a la Obra, winner of the 2018 Anti-Corruption Hackathon, including its MariaDB database built on SECOP II data.',
+    },
+    early: true,
   },
   {
     period: '2017 – 2018',
-    role: { es: 'Cofundadora & Líder Web', en: 'Co-founder & Web Lead' },
+    role: { es: 'Cofundadora y líder web', en: 'Co-founder & Web Lead' },
     org: 'Ashara Studios',
-    note: { es: 'El estudio creció a ~20 personas; ~10 webs y apps entregadas.', en: 'The studio grew to ~20 people; ~10 sites and apps shipped.' },
+    note: {
+      es: 'Cofundé el estudio con 3 socios y lideré el área de software: definí tecnologías, arquitectura y bases de datos, y desarrollé cerca de 10 sitios y aplicaciones web. El estudio creció hasta ~20 personas.',
+      en: 'I co-founded the studio with 3 partners and led the software area: I defined technologies, architecture and databases, and built about 10 websites and web apps. The studio grew to ~20 people.',
+    },
+    early: true,
   },
   {
     period: '2013 – 2016',
     role: { es: 'Desarrolladora freelance', en: 'Freelance developer' },
     org: 'ARC Abogados · Aspencajanal',
-    note: { es: 'Sistemas de gestión con Java, Node.js y PostgreSQL.', en: 'Management systems with Java, Node.js and PostgreSQL.' },
+    note: {
+      es: 'Construí de principio a fin un sistema de recursos humanos para Aspencajanal (Java y PostgreSQL) y el sitio web y el aplicativo de gestión de casos de ARC Abogados (Node.js, Sails.js y PostgreSQL).',
+      en: 'I built an HR management system end to end for Aspencajanal (Java and PostgreSQL), plus the website and case management app for ARC Abogados (Node.js, Sails.js and PostgreSQL).',
+    },
+    early: true,
   },
 ];
 
@@ -321,10 +416,13 @@ export const awardsIntro = {
   prev: { es: 'Anteriores', en: 'Previous' },
   next: { es: 'Siguientes', en: 'Next' },
   expo: { es: 'Expositores', en: 'Exhibitors' },
+  speaker: { es: 'Ponentes', en: 'Speakers' },
+  org: { es: 'Organización', en: 'Organizing team' },
+  personal: { es: 'Personal', en: 'Personal' },
 };
 
 export const awards: {
-  kind: 'award' | 'expo';
+  kind: 'award' | 'expo' | 'speaker' | 'org' | 'personal';
   year: string;
   title: T;
   text: T;
@@ -332,6 +430,50 @@ export const awards: {
   imagePosition?: string;
   href?: string;
 }[] = [
+  {
+    kind: 'personal',
+    year: '2026',
+    title: { es: 'Carrera Sube Monserrate', en: 'Sube Monserrate race' },
+    text: {
+      es: 'Subí en 48:48. Fue volver a competir después de una cirugía de tobillo y un largo proceso de recuperación física y mental: lograrlo fue muy satisfactorio.',
+      en: 'I made it up in 48:48. It was my return to racing after ankle surgery and a long physical and mental recovery, and reaching that milestone was deeply satisfying.',
+    },
+    image: './img/eventos/sube-monserrate-2026.jpg',
+    imagePosition: '50% 55%',
+  },
+  {
+    kind: 'expo',
+    year: '2023',
+    title: { es: 'Colombia 4.0 · Ashara Studios', en: 'Colombia 4.0 · Ashara Studios' },
+    text: {
+      es: 'Presentamos todos nuestros juegos y servicios en Colombia 4.0, con stand propio del estudio.',
+      en: 'We showcased all of our games and services at Colombia 4.0, at the studio’s own booth.',
+    },
+    image: './img/eventos/colombia-4-0-2023.jpg',
+    imagePosition: '50% 40%',
+  },
+  {
+    kind: 'expo',
+    year: '2023',
+    title: { es: 'SOFA 2023 · Beta Test Fest', en: 'SOFA 2023 · Beta Test Fest' },
+    text: {
+      es: 'Expusimos Tower of Myths y Arkane Bestiary para que el público los probara en el Beta Test Fest de SOFA.',
+      en: 'We exhibited Tower of Myths and Arkane Bestiary so the public could play-test them at the SOFA Beta Test Fest.',
+    },
+    image: './img/eventos/sofa-2023-beta-test-fest.jpg',
+    imagePosition: '50% 60%',
+  },
+  {
+    kind: 'personal',
+    year: '2023',
+    title: { es: 'Mi primera carrera: 10K de la Media Maratón de Bogotá', en: 'My first race: Bogotá Half Marathon 10K' },
+    text: {
+      es: 'Meses de madrugadas entrenando, ampollas y terapias para la tendinitis para cruzar la meta en 1:06:18. Fue un reto y una gran satisfacción.',
+      en: 'Months of early-morning training, blisters and therapy for tendinitis to cross the finish line in 1:06:18. It was a real challenge and deeply satisfying.',
+    },
+    image: './img/eventos/mmb-2023-10k.jpg',
+    imagePosition: '50% 12%',
+  },
   {
     kind: 'award',
     year: '2025',
@@ -344,15 +486,15 @@ export const awards: {
   {
     kind: 'award',
     year: '2018',
-    title: { es: 'Ganadoras · Hackatón Anticorrupción', en: 'Winners · Anti-corruption Hackathon' },
-    text: { es: 'Colombia 4.0, con el proyecto Alerta a la Obra.', en: 'Colombia 4.0, with the Alerta a la Obra project.' },
+    title: { es: 'Ganadores · Hackatón Anticorrupción', en: 'Winners · Anti-Corruption Hackathon' },
+    text: { es: 'En Colombia 4.0, con el proyecto Alerta a la Obra.', en: 'At Colombia 4.0, with the Alerta a la Obra project.' },
     image: './img/eventos/anticorrupcion.jpg',
     href: 'https://mintic.gov.co/portal/604/w3-article-80376.html',
   },
   {
     kind: 'award',
     year: '2018',
-    title: { es: 'Ganadoras · Hurify Challenge, AngelHack Bogotá', en: 'Winners · Hurify Challenge, AngelHack Bogotá' },
+    title: { es: 'Ganadores · Hurify Challenge, AngelHack Bogotá', en: 'Winners · Hurify Challenge, AngelHack Bogotá' },
     text: { es: 'Un wearable IoT para conectar personas en bares y fiestas.', en: 'An IoT wearable to connect people at bars and parties.' },
     image: './img/eventos/angelhack.jpg',
     href: 'https://www.facebook.com/p4sco/videos/1919243428140467/',
@@ -366,6 +508,17 @@ export const awards: {
     href: 'https://www.youtube.com/watch?v=f3AEtVmAAuA',
   },
   {
+    kind: 'speaker',
+    year: '2017',
+    title: { es: 'Expo Made With Unity · SOFA 2017', en: 'Made With Unity Expo · SOFA 2017' },
+    text: {
+      es: 'Fuimos ponentes con nuestro juego Exorcist en la Expo Made With Unity, en el marco de SOFA 2017.',
+      en: 'We spoke about our game Exorcist at the Made With Unity Expo, part of SOFA 2017.',
+    },
+    image: './img/eventos/sofa-2017-made-with-unity.jpg',
+    imagePosition: '50% 40%',
+  },
+  {
     kind: 'award',
     year: '2017',
     title: { es: 'Top 8 nacional · Innova6k', en: 'National Top 8 · Innova6k' },
@@ -376,13 +529,24 @@ export const awards: {
   {
     kind: 'expo',
     year: '2017',
-    title: { es: 'Unity Developer Day & Made With Unity · Exorcist', en: 'Unity Developer Day & Made With Unity · Exorcist' },
+    title: { es: 'Unity Developer Day · Exorcist', en: 'Unity Developer Day · Exorcist' },
     text: {
       es: 'Expusimos nuestro juego Exorcist, que se lanzó en Google Play y llevó a un contrato de USD 45.000 con Nutaku.',
       en: 'We exhibited our game Exorcist, which launched on Google Play and led to a USD 45,000 deal with Nutaku.',
     },
     image: './img/eventos/hero.jpg',
     href: 'https://www.youtube.com/watch?v=3r41l1CJpt8',
+  },
+  {
+    kind: 'org',
+    year: '2017',
+    title: { es: 'VIII Encuentro Interuniversitario sobre Complejidad', en: '8th Inter-University Meeting on Complexity' },
+    text: {
+      es: 'Formé parte del equipo organizador con el grupo ComplexUD: “Complejidad y Auto-Organización”, del 8 al 12 de mayo en Bogotá.',
+      en: 'I was part of the organizing team with the ComplexUD group: “Complexity and Self-Organization”, May 8–12 in Bogotá.',
+    },
+    image: './img/eventos/complejidad-2017.jpg',
+    imagePosition: '50% 55%',
   },
 ];
 
@@ -470,10 +634,10 @@ export const badgesByDate = [...badges].sort((a, b) => {
 
 export const contact = {
   eyebrow: { es: 'Contacto', en: 'Contact' },
-  title: { es: '¿Construimos algo con cuidado?', en: "Let's build something with care" },
+  title: { es: '¿Tienes una vacante o un proyecto en mente?', en: 'Got a role or a project in mind?' },
   text: {
-    es: 'Busco equipos remotos donde pueda diseñar sistemas escalables y de alto impacto, y también tomo proyectos freelance. Escríbeme y te respondo pronto.',
-    en: 'I am looking for remote teams where I can design scalable, high-impact systems, and I also take freelance projects. Drop me a line and I will get back to you soon.',
+    es: 'Busco equipos remotos o híbridos (en Bogotá) donde pueda diseñar sistemas escalables y de alto impacto, y también tomo proyectos freelance. Escríbeme y te respondo pronto.',
+    en: 'I am looking for remote or hybrid teams (in Bogotá) where I can design scalable, high-impact systems, and I also take on freelance projects. Drop me a line and I’ll get back to you soon.',
   },
   copy: { es: 'Copiar correo', en: 'Copy email' },
   copied: { es: '¡Copiado!', en: 'Copied!' },
@@ -486,4 +650,5 @@ export const footer = {
     en: 'Handmade with React, Three.js and lots of hama beads.',
   },
   avatar: { es: 'Avatar voxel hecho por mí en VoxEdit.', en: 'Voxel avatar made by me in VoxEdit.' },
+  social: { es: 'Encuéntrame en', en: 'Find me on' },
 };

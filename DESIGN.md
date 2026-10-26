@@ -44,7 +44,7 @@ Certificaciones por área: verde = IA y datos · amarillo = frontend y web · mo
 |---|---|---|
 | Display | Bricolage Grotesque 700–800 | Titulares grandes, tracking -0.02em |
 | Texto | DM Sans 400–700 | 17px base, interlineado 1.6 |
-| Pixel | Pixelify Sans 500–700 | Logo, eyebrows, etiquetas, globo de diálogo |
+| Mono | DM Mono 400–500 | Eyebrows, etiquetas, fechas, globo de diálogo (el logo es imagen) |
 
 Escala: 14 · 17 · 20 · 24 · 32 · 44 · clamp(48–96) para el hero.
 

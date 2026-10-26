@@ -13,7 +13,7 @@ export const patterns: Record<string, string[]> = {
   beads: ['.pp...pp.', 'pppp.pppp', 'ppppppppp', 'ppppppppp', '.ppppppp.', '..ppppp..', '...ppp...', '....p....'],
   embroidery: ['...ppp...', '..ppppp..', '.ppyyypp.', '.ppyyypp.', '..ppppp..', '...ppp...', '....m....', '..mmm....', '....m....'],
   paint: ['.......yy', '......yyy', '.....yyy.', '....yyy..', '...wwy...', '..ccw....', '.ccc.....', 'cccc.....', 'cc.......'],
-  sew: ['..ggggg..', '.ggggggg.', 'ggggggggg', 'ggdgggdgg', 'ggggggggg', 'ggdgggdgg', 'ggggggggg', '.ggggggg.', '..ggggg..'],
+  run: ['..cc......', '..cwc.....', '..cccc....', '.cccpccc..', 'cccccppcc.', 'cccccccccc', 'wwwwwwwwww'],
   anime: ['....w....', '...www...', '..wwwww..', '..wwwww..', '.wwwwwww.', '.wwwwwww.', 'wwwdddwww', 'wwwdddwww', '.wwdddww.'],
   trophy: ['yyyyyyyyy', 'y.yyyyy.y', 'y.yyyyy.y', '.yyywyyy.', '..yyyyy..', '...yyy...', '....y....', '...ccc...', '..ccccc..'],
   sparkle: ['....p....', '....p....', '...ppp...', 'ppppwpppp', '...ppp...', '....p....', '....p....'],

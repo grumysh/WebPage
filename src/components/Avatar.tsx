@@ -1,13 +1,34 @@
-import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, type MutableRefObject } from 'react';
+import { Suspense, useEffect, useLayoutEffect, useMemo, useRef, useState, type MutableRefObject } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { ContactShadows, useGLTF } from '@react-three/drei';
+import { ContactShadows, Html, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 const MODEL_URL = './models/grumysh.glb';
 const MODEL_HEIGHT = 2;
+const COMPANION_URL = './models/stitch.glb';
+const COMPANION_HEIGHT = 1.05;
 
 export type OneShot = { name: string; id: number } | null;
 export type PointerRef = MutableRefObject<{ x: number; y: number }>;
+// 0 = avatar en la portada, 1 = acoplado en la esquina
+export type FlightRef = MutableRefObject<number>;
+
+// Normaliza un modelo de VoxEdit: altura fija, pies en y=0 y centrado
+function fitScene(scene: THREE.Object3D, height: number) {
+  const box = new THREE.Box3().setFromObject(scene);
+  const size = box.getSize(new THREE.Vector3());
+  const center = box.getCenter(new THREE.Vector3());
+  const s = height / size.y;
+  return { s, x: -center.x * s, y: -box.min.y * s, z: -center.z * s };
+}
+
+function useNoCulling(scene: THREE.Object3D) {
+  useLayoutEffect(() => {
+    scene.traverse((o) => {
+      if ((o as THREE.Mesh).isMesh) (o as THREE.Mesh).frustumCulled = false;
+    });
+  }, [scene]);
+}
 
 type ModelProps = {
   loop: string;
@@ -29,27 +50,15 @@ function Model({ loop, oneShot, pointer, onReady }: ModelProps) {
   const tmpQuat = useMemo(() => new THREE.Quaternion(), []);
   const tmpEuler = useMemo(() => new THREE.Euler(), []);
 
-  // Normaliza el modelo de VoxEdit: altura fija, pies en y=0 y centrado
-  const fit = useMemo(() => {
-    const box = new THREE.Box3().setFromObject(scene);
-    const size = box.getSize(new THREE.Vector3());
-    const center = box.getCenter(new THREE.Vector3());
-    const s = MODEL_HEIGHT / size.y;
-    return { s, x: -center.x * s, y: -box.min.y * s, z: -center.z * s };
-  }, [scene]);
-
-  useLayoutEffect(() => {
-    scene.traverse((o) => {
-      if ((o as THREE.Mesh).isMesh) (o as THREE.Mesh).frustumCulled = false;
-    });
-  }, [scene]);
+  const fit = useMemo(() => fitScene(scene, MODEL_HEIGHT), [scene]);
+  useNoCulling(scene);
 
   const play = (name: string, once: boolean) => {
     const clip = THREE.AnimationClip.findByName(animations, name);
     if (!clip) return;
     const next = mixer.clipAction(clip);
     const prev = current.current;
-    if (prev === next && !once) return;
+    if (prev === next && !once && next.isRunning()) return;
     next.reset();
     next.setLoop(once ? THREE.LoopOnce : THREE.LoopRepeat, Infinity);
     next.clampWhenFinished = once;
@@ -85,6 +94,8 @@ function Model({ loop, oneShot, pointer, onReady }: ModelProps) {
     onReady();
     return () => {
       mixer.stopAllAction();
+      current.current = null;
+      playingOnce.current = false;
     };
   }, [mixer]);
 
@@ -109,17 +120,77 @@ function Model({ loop, oneShot, pointer, onReady }: ModelProps) {
   );
 }
 
+// Stitch acompaña a Grumysh solo en la portada: se encoge y desaparece al empezar el scroll
+function Companion({ flight, label }: { flight: FlightRef; label: string }) {
+  const { scene, animations } = useGLTF(COMPANION_URL);
+  const mixer = useMemo(() => new THREE.AnimationMixer(scene), [scene]);
+  const fit = useMemo(() => fitScene(scene, COMPANION_HEIGHT), [scene]);
+  const holder = useRef<THREE.Group>(null);
+  const shown = useRef(0);
+  // Al pasar el mouse (o tocarlo en el celular) aparece su presentación
+  const [hover, setHover] = useState(false);
+  useNoCulling(scene);
+
+  useEffect(() => {
+    const clip = THREE.AnimationClip.findByName(animations, 'Idle 01');
+    if (clip) mixer.clipAction(clip).play();
+    return () => {
+      mixer.stopAllAction();
+    };
+  }, [mixer, animations]);
+
+  useFrame((_, delta) => {
+    const target = flight.current < 0.15 ? 1 : 0;
+    shown.current += (target - shown.current) * Math.min(1, delta * 8);
+    const g = holder.current;
+    if (!g) return;
+    g.visible = shown.current > 0.01;
+    if (!g.visible && hover) setHover(false);
+    g.scale.setScalar(shown.current);
+    if (g.visible) mixer.update(Math.min(delta, 0.1));
+  });
+
+  return (
+    <group ref={holder}>
+      <group
+        position={[fit.x, fit.y, fit.z]}
+        scale={fit.s}
+        onPointerOver={(e) => {
+          e.stopPropagation();
+          setHover(true);
+        }}
+        onPointerOut={() => setHover(false)}
+        onClick={(e) => {
+          // el clic es para Stitch, no para que Grumysh esquive
+          e.stopPropagation();
+          setHover((v) => !v);
+        }}
+      >
+        <primitive object={scene} />
+      </group>
+      {hover && (
+        <Html position={[0, COMPANION_HEIGHT + 0.08, 0]} zIndexRange={[40, 0]} style={{ pointerEvents: 'none' }}>
+          <span className="pet-tag">{label}</span>
+        </Html>
+      )}
+    </group>
+  );
+}
+
 useGLTF.preload(MODEL_URL);
+useGLTF.preload(COMPANION_URL);
 
 type AvatarProps = {
   loop: string;
   oneShot: OneShot;
   pointer: PointerRef;
+  flight: FlightRef;
+  petLabel: string;
   onReady: () => void;
   onPoke: () => void;
 };
 
-export default function Avatar({ loop, oneShot, pointer, onReady, onPoke }: AvatarProps) {
+export default function Avatar({ loop, oneShot, pointer, flight, petLabel, onReady, onPoke }: AvatarProps) {
   return (
     <Canvas
       className="avatar-canvas"
@@ -140,8 +211,12 @@ export default function Avatar({ loop, oneShot, pointer, onReady, onPoke }: Avat
       <directionalLight position={[-4, 3, -3]} intensity={1.6} color="#a77bff" />
       <directionalLight position={[4, 1, -2]} intensity={1.0} color="#ff7aa8" />
       <Suspense fallback={null}>
-        <group rotation={[0, Math.PI - 0.4, 0]}>
+        <group rotation={[0, Math.PI - 0.12, 0]}>
           <Model loop={loop} oneShot={oneShot} pointer={pointer} onReady={onReady} />
+        </group>
+        {/* de frente es Math.PI; girado en tres cuartos hacia Grumysh */}
+        <group position={[-0.72, 0, 0]} rotation={[0, Math.PI + 0.5, 0]}>
+          <Companion flight={flight} label={petLabel} />
         </group>
         <ContactShadows position={[0, 0.001, 0]} opacity={0.55} scale={4} blur={2.4} far={1.6} color="#000000" />
       </Suspense>

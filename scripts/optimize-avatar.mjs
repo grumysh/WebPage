@@ -1,11 +1,11 @@
 // Convierte el .gltf exportado por VoxEdit (texturas en base64) a un .glb compacto.
-// Uso: npm run avatar -- "/ruta/a/Grumysh.gltf"
+// Uso: npm run avatar -- "/ruta/a/Grumysh.gltf" [public/models/salida.glb]
 import { NodeIO } from '@gltf-transform/core';
 import { dedup, prune, unpartition } from '@gltf-transform/functions';
 import { statSync } from 'node:fs';
 
 const input = process.argv[2];
-const output = 'public/models/grumysh.glb';
+const output = process.argv[3] ?? 'public/models/grumysh.glb';
 if (!input) {
   console.error('Falta la ruta del .gltf');
   process.exit(1);

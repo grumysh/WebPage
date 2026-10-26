@@ -94,7 +94,8 @@ export function Pegboard() {
             key={i}
             type="button"
             className={`peg ${c ? `bead-${c}` : ''}`}
-            aria-label={`${i % COLS + 1}, ${Math.floor(i / COLS) + 1}`}
+            tabIndex={-1}
+            aria-hidden="true"
             onPointerDown={(e) => {
               (e.target as HTMLElement).releasePointerCapture?.(e.pointerId);
               painting.current = true;

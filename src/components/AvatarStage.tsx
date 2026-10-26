@@ -14,7 +14,7 @@ const LOOPS: Record<string, string> = {
   awards: 'Jump 01',
   badges: 'Sit 01',
   contact: 'Idle 02',
-  footer: 'Sleep 01',
+  footer: 'Eat 01',
 };
 const ON_ENTER: Record<string, string> = { contact: 'Kiss 01' };
 
@@ -27,6 +27,7 @@ export default function AvatarStage({ section, slotRef }: Props) {
   const stageRef = useRef<HTMLDivElement>(null);
   const bubbleRef = useRef<HTMLDivElement>(null);
   const pointer = useRef({ x: 0, y: 0 });
+  const flight = useRef(0);
   const [ready, setReady] = useState(false);
   const [oneShot, setOneShot] = useState<OneShot>(null);
   const [talking, setTalking] = useState(true);
@@ -79,6 +80,7 @@ export default function AvatarStage({ section, slotRef }: Props) {
       const dockY = vh - GUTTER - h * k1;
       const raw = Math.min(Math.max(window.scrollY / (vh * 0.75), 0), 1);
       const p = raw * raw * (3 - 2 * raw);
+      flight.current = p;
       const k = 1 + (k1 - 1) * p;
       const x = slot.left + (dockX - slot.left) * p;
       const y = slot.top + (dockY - slot.top) * p;
@@ -127,6 +129,8 @@ export default function AvatarStage({ section, slotRef }: Props) {
             loop={LOOPS[section] ?? 'Idle 01'}
             oneShot={oneShot}
             pointer={pointer}
+            flight={flight}
+            petLabel={t(ui.pet)}
             onReady={() => setReady(true)}
             onPoke={() => fire('Dodge 01')}
           />

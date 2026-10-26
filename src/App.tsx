@@ -4,7 +4,6 @@ import {
   about,
   awardsByDate,
   awardsIntro,
-  badges,
   badgesByDate,
   badgeCategories,
   badgesIntro,
@@ -22,6 +21,7 @@ import {
 } from './content';
 import AvatarStage from './components/AvatarStage';
 import { BeadArt } from './components/BeadArt';
+import { TechIcon, brandColor } from './components/TechIcon';
 import { Pegboard } from './components/Pegboard';
 import { BadgesModal, type Badge } from './components/BadgesModal';
 
@@ -51,7 +51,7 @@ function Header() {
         <a className="logo" href="#hero">
           <img src="./img/grumysh-logo.png" alt="Grumysh" width={148} height={36} />
         </a>
-        <nav className="nav" aria-label="Principal">
+        <nav className="nav" aria-label={t(ui.mainNav)}>
           {items.map(([id, label]) => (
             <a key={id} href={`#${id}`}>
               {t(label)}
@@ -59,7 +59,7 @@ function Header() {
           ))}
         </nav>
         <div className="header-actions">
-          <div className="lang-toggle" role="group" aria-label="Idioma / Language">
+          <div className="lang-toggle" role="group" aria-label={t(ui.language)}>
             {(['es', 'en'] as const).map((l) => (
               <button key={l} type="button" aria-pressed={lang === l} onClick={() => setLang(l)}>
                 {l.toUpperCase()}
@@ -81,7 +81,7 @@ function Hero({ slotRef }: { slotRef: React.RefObject<HTMLDivElement | null> }) 
     <section id="hero" data-section="hero" className="hero">
       <div className="wrap hero-grid">
         <div className="hero-copy">
-          <p className="aka">
+          <p className="available">
             <span className="dot" aria-hidden="true" />
             {t(hero.available)}
           </p>
@@ -150,6 +150,34 @@ function About() {
           </div>
         </div>
 
+        <h3 className="mini-title reveal">{t(about.stackTitle)}</h3>
+        <div className="stack reveal">
+          {about.stack.map((g) => (
+            <div key={g.group.es} className={`patch stack-group c-${g.color}`}>
+              <span className="stack-label">
+                <span className="bead" aria-hidden="true" />
+                {t(g.group)}
+              </span>
+              <ul className="tools">
+                {g.items.map((i) => (
+                  <li
+                    key={i.name}
+                    className="tool"
+                    title={i.detail}
+                    style={{ ['--brand' as string]: brandColor(i.icon) ?? 'var(--accent)' }}
+                  >
+                    <TechIcon icon={i.icon} glyph={i.glyph} />
+                    <span>
+                      {i.name}
+                      {i.detail && <small>{i.detail}</small>}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
         <div className="offline reveal">
           <div className="offline-copy">
             <h3 className="mini-title">{t(about.hobbiesTitle)}</h3>
@@ -167,22 +195,6 @@ function About() {
             </ul>
           </div>
           <Pegboard />
-        </div>
-
-        <h3 className="mini-title reveal">{t(about.stackTitle)}</h3>
-        <div className="stack reveal">
-          {about.stack.map((g) => (
-            <div key={g.group.es} className="stack-group">
-              <span className="stack-label">{t(g.group)}</span>
-              <div className="chips">
-                {g.items.map((i) => (
-                  <span key={i} className="chip">
-                    {i}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -275,6 +287,8 @@ function Projects() {
 
 function Career() {
   const { t } = useLang();
+  const [showAll, setShowAll] = useState(false);
+  const visible = showAll ? career : career.filter((c) => !c.early);
   return (
     <section id="career" data-section="career" className="section">
       <div className="wrap">
@@ -282,8 +296,8 @@ function Career() {
           <Eyebrow color="mint">{t(careerIntro.eyebrow)}</Eyebrow>
           <h2>{t(careerIntro.title)}</h2>
         </div>
-        <ol className="timeline">
-          {career.map((c, i) => (
+        <ol className={`timeline ${showAll ? '' : 'is-collapsed'}`}>
+          {visible.map((c, i) => (
             <li key={i} className={`step reveal ${c.current ? 'is-current' : ''}`}>
               <span className="step-bead" aria-hidden="true" />
               <span className="step-period">{c.period}</span>
@@ -296,6 +310,11 @@ function Career() {
             </li>
           ))}
         </ol>
+        <div className="timeline-more">
+          <button type="button" className="btn btn-ghost" onClick={() => setShowAll((v) => !v)} aria-expanded={showAll}>
+            {showAll ? t(careerIntro.less) : t(careerIntro.more)}
+          </button>
+        </div>
       </div>
     </section>
   );
@@ -311,18 +330,24 @@ function Awards() {
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
+    let raf = 0;
     const measure = () => {
+      raf = 0;
       const card = track.firstElementChild as HTMLElement | null;
       const perView = card ? Math.max(1, Math.round(track.clientWidth / card.offsetWidth)) : 1;
       setPages(Math.ceil(awardsByDate.length / perView));
       setPage(Math.round(track.scrollLeft / track.clientWidth));
     };
+    const schedule = () => {
+      if (!raf) raf = requestAnimationFrame(measure);
+    };
     measure();
-    track.addEventListener('scroll', measure, { passive: true });
-    const ro = new ResizeObserver(measure);
+    track.addEventListener('scroll', schedule, { passive: true });
+    const ro = new ResizeObserver(schedule);
     ro.observe(track);
     return () => {
-      track.removeEventListener('scroll', measure);
+      cancelAnimationFrame(raf);
+      track.removeEventListener('scroll', schedule);
       ro.disconnect();
     };
   }, []);
@@ -352,14 +377,12 @@ function Awards() {
           </div>
         </div>
         <div className="awards-carousel reveal" ref={trackRef}>
-          {awardsByDate.map((a, i) => (
-            <a
-              key={i}
-              className={`patch award ${a.image ? '' : 'no-image'}`}
-              href={a.href}
-              target="_blank"
-              rel="noreferrer"
-            >
+          {awardsByDate.map((a, i) => {
+            // los momentos personales no llevan enlace
+            const Card = a.href ? 'a' : 'div';
+            const linkProps = a.href ? { href: a.href, target: '_blank', rel: 'noreferrer' } : {};
+            return (
+            <Card key={i} className={`patch award ${a.image ? '' : 'no-image'}`} {...linkProps}>
               {a.image ? (
                 <div className="award-img">
                   <img src={a.image} alt="" loading="lazy" style={{ objectPosition: a.imagePosition }} />
@@ -377,8 +400,9 @@ function Awards() {
                 <h3>{t(a.title)}</h3>
                 <p className="body-text small">{t(a.text)}</p>
               </div>
-            </a>
-          ))}
+            </Card>
+            );
+          })}
         </div>
         {pages > 1 && (
           <div className="carousel-dots" role="group" aria-label={t(awardsIntro.eyebrow)}>
@@ -436,7 +460,7 @@ function Badges() {
         </ul>
         <div className="badges-more">
           <button type="button" className="btn btn-ghost" onClick={() => setShowAll((v) => !v)} aria-expanded={showAll}>
-            {showAll ? t(badgesIntro.showLess) : `${t(badgesIntro.showAll)} (${badges.length})`}
+            {showAll ? t(badgesIntro.showLess) : `${t(badgesIntro.showAll)} (${badgesByDate.length})`}
           </button>
         </div>
       </div>
@@ -500,12 +524,31 @@ function Contact() {
   );
 }
 
+// LinkedIn, GitHub y GitLab ya están en Contacto; aquí solo las redes personales
+const SOCIALS: [string, string, string][] = [
+  ['Instagram', links.instagram, 'pink'],
+  ['X', links.x, 'mint'],
+];
+
 function Footer() {
   const { t } = useLang();
   return (
     <footer id="footer" data-section="footer" className="site-footer">
       <div className="wrap footer-inner">
         <img className="logo-img" src="./img/grumysh-logo.png" alt="Grumysh" width={132} height={32} />
+        <nav className="footer-social" aria-label={t(footer.social)}>
+          <span className="footer-social-label">{t(footer.social)}</span>
+          <ul>
+            {SOCIALS.map(([label, href, color]) => (
+              <li key={label}>
+                <a className={`social-pill c-${color}`} href={href} target="_blank" rel="noreferrer">
+                  <span className="bead" aria-hidden="true" />
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
         <p>
           {t(footer.made)} {t(footer.avatar)}
         </p>
@@ -558,12 +601,19 @@ function useReveal() {
       },
       { rootMargin: '0px 0px -8% 0px' },
     );
-    const observeNew = () => document.querySelectorAll('.reveal:not(.in)').forEach((el) => io.observe(el));
+    let raf = 0;
+    const observeNew = () => {
+      raf = 0;
+      document.querySelectorAll('.reveal:not(.in)').forEach((el) => io.observe(el));
+    };
     observeNew();
-    // También los bloques que aparecen después (popups, recarga en caliente, etc.)
-    const mo = new MutationObserver(observeNew);
+    // También los bloques que aparecen después (popups, recarga en caliente, etc.); un solo barrido por frame
+    const mo = new MutationObserver(() => {
+      if (!raf) raf = requestAnimationFrame(observeNew);
+    });
     mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
     return () => {
+      cancelAnimationFrame(raf);
       io.disconnect();
       mo.disconnect();
     };
@@ -571,13 +621,14 @@ function useReveal() {
 }
 
 export default function App() {
+  const { t } = useLang();
   const slotRef = useRef<HTMLDivElement>(null);
   const section = useActiveSection();
   useReveal();
   return (
     <>
       <a className="skip" href="#about">
-        Saltar al contenido
+        {t(ui.skip)}
       </a>
       <Header />
       <main>
