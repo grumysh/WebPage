@@ -9,7 +9,8 @@ export const links = {
   linkedin: 'https://www.linkedin.com/in/grumysh/',
   instagram: 'https://www.instagram.com/anlramirezs/',
   x: 'https://x.com/Grumysh',
-  cv: './cv/Andrea_Ramirez_CV.pdf',
+  // el CV se descarga en el idioma que esté viendo la persona
+  cv: { es: './cv/Andrea_Ramirez_CV_ES.pdf', en: './cv/Andrea_Ramirez_CV_EN.pdf' },
 };
 
 export const ui = {
@@ -47,8 +48,8 @@ export const hero = {
     en: 'Full Stack Software Engineer & Tech Lead',
   },
   lead: {
-    es: 'Llevo más de 10 años convirtiendo problemas complejos en productos listos para producción: arquitectura, APIs, frontend, nube y Web3. Me encantan los videojuegos y las cosas hechas con cuidado.',
-    en: 'For 10+ years I have been turning complex problems into production-ready products: architecture, APIs, frontend, cloud and Web3. I love games and things made with care.',
+    es: 'Llevo más de 8 años convirtiendo problemas complejos en productos listos para producción: arquitectura, APIs, frontend, nube y Web3. Me encantan los videojuegos y las cosas hechas con cuidado.',
+    en: 'For 8+ years I have been turning complex problems into production-ready products: architecture, APIs, frontend, cloud and Web3. I love games and things made with care.',
   },
   available: {
     es: 'Disponible para empleo remoto o híbrido y proyectos freelance',
@@ -60,7 +61,7 @@ export const hero = {
 };
 
 export const stats: { value: string; label: T; color: string }[] = [
-  { value: '10+', label: { es: 'años construyendo software', en: 'years building software' }, color: 'pink' },
+  { value: '8+', label: { es: 'años construyendo software', en: 'years building software' }, color: 'pink' },
   { value: 'USD 85K', label: { es: 'financiados por The Sandbox DAO', en: 'funded by The Sandbox DAO' }, color: 'mint' },
   { value: '~150K', label: { es: 'jugadores en New Festival Town', en: 'players on New Festival Town' }, color: 'purple' },
   { value: '~20', label: { es: 'personas en el estudio que cofundé', en: 'people at the studio I co-founded' }, color: 'butter' },
@@ -315,7 +316,7 @@ export const projects: Project[] = [
 
 export const careerIntro = {
   eyebrow: { es: 'Trayectoria', en: 'Career' },
-  title: { es: 'Subiendo de nivel desde 2013', en: 'Leveling up since 2013' },
+  title: { es: 'Subiendo de nivel desde 2017', en: 'Leveling up since 2017' },
   more: { es: 'Ver toda mi trayectoria', en: 'See my full career' },
   less: { es: 'Ver menos', en: 'See less' },
 };
@@ -641,7 +642,7 @@ export const contact = {
   },
   copy: { es: 'Copiar correo', en: 'Copy email' },
   copied: { es: '¡Copiado!', en: 'Copied!' },
-  cvNote: { es: 'CV en español (PDF)', en: 'CV in Spanish (PDF)' },
+  cvNote: { es: 'CV (PDF)', en: 'Résumé (PDF)' },
 };
 
 export const footer = {
