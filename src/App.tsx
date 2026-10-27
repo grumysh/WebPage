@@ -66,7 +66,7 @@ function Header() {
               </button>
             ))}
           </div>
-          <a className="btn btn-small" href={links.cv} download>
+          <a className="btn btn-small" href={t(links.cv)} download>
             {t(ui.nav.cv)}
           </a>
         </div>
@@ -513,7 +513,7 @@ function Contact() {
               </a>
             </li>
             <li>
-              <a href={links.cv} download>
+              <a href={t(links.cv)} download>
                 {t(contact.cvNote)} ↓
               </a>
             </li>
