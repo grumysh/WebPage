@@ -646,8 +646,8 @@ export const contact = {
 
 export const footer = {
   made: {
-    es: 'Hecho a mano con React, Three.js y muchas cuentas de hama.',
-    en: 'Handmade with React, Three.js and lots of hama beads.',
+    es: 'Hecho a mano, con cariño y muchas cuentas de hama.',
+    en: 'Handmade with love and lots of hama beads.',
   },
   avatar: { es: 'Avatar voxel hecho por mí en VoxEdit.', en: 'Voxel avatar made by me in VoxEdit.' },
   social: { es: 'Encuéntrame en', en: 'Find me on' },
