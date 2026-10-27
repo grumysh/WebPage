@@ -161,15 +161,15 @@ function About() {
               <ul className="tools">
                 {g.items.map((i) => (
                   <li
-                    key={i.name}
+                    key={t(i.name)}
                     className="tool"
-                    title={i.detail}
+                    title={i.detail && t(i.detail)}
                     style={{ ['--brand' as string]: brandColor(i.icon) ?? 'var(--accent)' }}
                   >
                     <TechIcon icon={i.icon} glyph={i.glyph} />
                     <span>
-                      {i.name}
-                      {i.detail && <small>{i.detail}</small>}
+                      {t(i.name)}
+                      {i.detail && <small>{t(i.detail)}</small>}
                     </span>
                   </li>
                 ))}

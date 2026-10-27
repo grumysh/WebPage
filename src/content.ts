@@ -116,6 +116,7 @@ export const about = {
       items: [
         { name: 'Node.js', icon: 'nodedotjs' },
         { name: 'Express', icon: 'express' },
+        { name: 'NestJS', icon: 'nestjs' },
         { name: 'TypeScript', icon: 'typescript' },
         { name: 'Python', icon: 'python' },
         { name: 'REST APIs', glyph: 'API' },
@@ -128,10 +129,12 @@ export const about = {
       items: [
         { name: 'React', icon: 'react' },
         { name: 'Redux', icon: 'redux' },
+        { name: 'Next.js', icon: 'nextdotjs' },
         { name: 'Vite', icon: 'vite' },
         { name: 'Angular', icon: 'angular' },
         { name: 'Vue.js', icon: 'vuedotjs' },
         { name: 'Nuxt', icon: 'nuxt' },
+        { name: 'Tailwind CSS', icon: 'tailwindcss' },
         { name: 'Three.js', icon: 'threedotjs' },
       ],
     },
@@ -143,17 +146,39 @@ export const about = {
         { name: 'PostgreSQL', icon: 'postgresql' },
         { name: 'MariaDB', icon: 'mariadb' },
         { name: 'MySQL', icon: 'mysql' },
+        { name: 'Redis', icon: 'redis' },
       ],
     },
     {
       group: { es: 'Nube y DevOps', en: 'Cloud & DevOps' },
       color: 'coral',
       items: [
-        { name: 'AWS', glyph: 'AWS', detail: 'EC2 · ECS · ECR · S3 · Secrets Manager' },
+        { name: 'AWS', glyph: 'AWS', detail: 'EC2 · ECS · ECR · S3 · Lambda · CloudWatch · Secrets Manager' },
         { name: 'Docker', icon: 'docker' },
+        { name: 'DigitalOcean', icon: 'digitalocean' },
+        { name: 'MongoDB Atlas', icon: 'mongodb' },
+        { name: 'GitHub Actions', icon: 'githubactions' },
         { name: 'GitLab CI/CD', icon: 'gitlab' },
         { name: 'GitHub', icon: 'github' },
         { name: 'Git', icon: 'git' },
+      ],
+    },
+    {
+      group: { es: 'Pruebas', en: 'Testing' },
+      color: 'purple',
+      items: [
+        { name: 'Jest', icon: 'jest' },
+        { name: 'Jasmine', icon: 'jasmine' },
+        { name: { es: 'Pruebas unitarias', en: 'Unit testing' }, glyph: 'UT' },
+      ],
+    },
+    {
+      group: { es: 'Seguridad', en: 'Security' },
+      color: 'mint',
+      items: [
+        { name: 'JWT', icon: 'jsonwebtokens' },
+        { name: 'OAuth 2.0', glyph: 'OA' },
+        { name: 'RBAC', glyph: 'RB', detail: { es: 'permisos por rol', en: 'role-based access' } },
       ],
     },
     {
@@ -172,13 +197,15 @@ export const about = {
       items: [
         { name: 'thirdweb', icon: 'thirdweb' },
         { name: 'Polygon', icon: 'polygon' },
-        { name: 'Smart contracts', glyph: 'SC' },
+        { name: { es: 'Contratos inteligentes', en: 'Smart contracts' }, glyph: 'SC' },
+        { name: 'OpenSea SDK', icon: 'opensea' },
+        { name: 'Binance API', icon: 'binance' },
         { name: 'Unity', icon: 'unity' },
         { name: 'Phaser', glyph: 'PH' },
         { name: 'VoxEdit', glyph: 'VX' },
       ],
     },
-  ] as { group: T; color: string; items: { name: string; icon?: string; glyph?: string; detail?: string }[] }[],
+  ] as { group: T; color: string; items: { name: string | T; icon?: string; glyph?: string; detail?: string | T }[] }[],
 };
 
 export type Project = {
@@ -263,7 +290,7 @@ export const projects: Project[] = [
     },
     highlights: [],
     stack: ['React', 'thirdweb', 'Serverless', 'Notion API', 'Game Maker'],
-    metric: { es: 'Pico de 20.000 jugadores', en: 'Peak of 20,000 players' },
+    metric: { es: '20.000+ partidas jugadas', en: '20,000+ games played' },
     links: [{ label: { es: 'Ver en The Sandbox', en: 'See it on The Sandbox' }, href: 'https://www.sandbox.game/en/experiences/tower-of-myths/0266d75f-a62d-473b-b219-7d567d3adeb5/page/' }],
     color: 'mint',
   },
@@ -325,7 +352,7 @@ export const careerIntro = {
 export const career: { period: string; role: T; org: string; note: T; current?: boolean; early?: boolean }[] = [
   {
     period: '2024 —',
-    role: { es: 'Cofundadora y Tech Lead', en: 'Co-founder & Tech Lead' },
+    role: { es: 'Tech Lead', en: 'Tech Lead' },
     org: 'Ashara Studios',
     note: {
       es: 'Lidero el desarrollo técnico: arquitectura, datos, APIs, AWS y Web3. Construí Chrysalis Quest, financiada con USD 85.000 por The Sandbox DAO, y participé en el backend de New Festival Town (~150.000 jugadores).',
@@ -362,11 +389,11 @@ export const career: { period: string; role: T; org: string; note: T; current?: 
   },
   {
     period: '2020 – 2021',
-    role: { es: 'Desarrolladora Frontend', en: 'Frontend Developer' },
+    role: { es: 'Desarrolladora Edge Junior', en: 'Junior Edge Developer' },
     org: 'Banco de Occidente',
     note: {
-      es: 'Desarrollé interfaces web con Angular 8 y TypeScript para productos dirigidos a clientes del banco, integradas con sus APIs, y escribí pruebas unitarias con Jasmine y Karma, trabajando con Scrum, Jira y Git.',
-      en: "I built web interfaces with Angular 8 and TypeScript for the bank's customer-facing products, integrated with its APIs, and wrote unit tests with Jasmine and Karma, working with Scrum, Jira and Git.",
+      es: 'Desarrollé interfaces web con Angular 8 y TypeScript para productos dirigidos a clientes del banco, integradas con sus APIs, y escribí pruebas unitarias con Jasmine, trabajando con Scrum, Jira y Git.',
+      en: "I built web interfaces with Angular 8 and TypeScript for the bank's customer-facing products, integrated with its APIs, and wrote unit tests with Jasmine, working with Scrum, Jira and Git.",
     },
   },
   {
@@ -390,7 +417,7 @@ export const career: { period: string; role: T; org: string; note: T; current?: 
   },
   {
     period: '2017 – 2018',
-    role: { es: 'Cofundadora y líder web', en: 'Co-founder & Web Lead' },
+    role: { es: 'Desarrolladora Web', en: 'Web Developer' },
     org: 'Ashara Studios',
     note: {
       es: 'Cofundé el estudio con 3 socios y lideré el área de software: definí tecnologías, arquitectura y bases de datos, y desarrollé cerca de 10 sitios y aplicaciones web. El estudio creció hasta ~20 personas.',
@@ -509,12 +536,12 @@ export const awards: {
     href: 'https://www.youtube.com/watch?v=f3AEtVmAAuA',
   },
   {
-    kind: 'speaker',
+    kind: 'expo',
     year: '2017',
     title: { es: 'Expo Made With Unity · SOFA 2017', en: 'Made With Unity Expo · SOFA 2017' },
     text: {
-      es: 'Fuimos ponentes con nuestro juego Exorcist en la Expo Made With Unity, en el marco de SOFA 2017.',
-      en: 'We spoke about our game Exorcist at the Made With Unity Expo, part of SOFA 2017.',
+      es: 'Expusimos nuestro juego Exorcist en la Expo Made With Unity, en el marco de SOFA 2017.',
+      en: 'We exhibited our game Exorcist at the Made With Unity Expo, part of SOFA 2017.',
     },
     image: './img/eventos/sofa-2017-made-with-unity.jpg',
     imagePosition: '50% 40%',

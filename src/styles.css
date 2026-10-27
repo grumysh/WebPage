@@ -301,7 +301,9 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 }
 .chip-btn:hover { background: #3a2c4a; }
 
-.stack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+/* mosaico: cada grupo ocupa su alto y se acomoda en la columna con espacio */
+.stack { columns: 3; column-gap: 14px; }
+.stack > .stack-group { break-inside: avoid; margin-bottom: 14px; }
 .stack-group { padding: 26px 26px 28px; }
 .stack-group { position: relative; overflow: hidden; }
 .stack-group::before {
@@ -524,7 +526,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .header-actions { margin-left: auto; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .offline { grid-template-columns: 1fr; }
-  .stack { grid-template-columns: repeat(2, 1fr); }
+  .stack { columns: 2; }
   .awards-carousel { --per-view: 2; }
   .featured { grid-template-columns: 1fr; }
   .featured-body { padding: 18px 4px 0; order: -1; }
@@ -535,7 +537,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   .hero-grid { grid-template-columns: 1fr; min-height: 0; }
   .hero-slot { height: 52vh; min-height: 320px; order: -1; margin-bottom: -12px; }
   .about-grid { grid-template-columns: 1fr; gap: 24px; }
-  .stack { grid-template-columns: 1fr; }
+  .stack { columns: 1; }
   .awards-carousel { --per-view: 1; }
   .carousel-arrows { display: none; }
   .section { padding: 63px 0; }
