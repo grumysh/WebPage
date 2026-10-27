@@ -169,9 +169,7 @@ export const about = {
       items: [
         { name: 'Jest', icon: 'jest' },
         { name: 'Jasmine', icon: 'jasmine' },
-        { name: 'Karma', glyph: 'KA' },
         { name: { es: 'Pruebas unitarias', en: 'Unit testing' }, glyph: 'UT' },
-        { name: 'TDD', glyph: 'TDD' },
       ],
     },
     {
@@ -394,8 +392,8 @@ export const career: { period: string; role: T; org: string; note: T; current?: 
     role: { es: 'Desarrolladora Edge Junior', en: 'Junior Edge Developer' },
     org: 'Banco de Occidente',
     note: {
-      es: 'Desarrollé interfaces web con Angular 8 y TypeScript para productos dirigidos a clientes del banco, integradas con sus APIs, y escribí pruebas unitarias con Jasmine y Karma, trabajando con Scrum, Jira y Git.',
-      en: "I built web interfaces with Angular 8 and TypeScript for the bank's customer-facing products, integrated with its APIs, and wrote unit tests with Jasmine and Karma, working with Scrum, Jira and Git.",
+      es: 'Desarrollé interfaces web con Angular 8 y TypeScript para productos dirigidos a clientes del banco, integradas con sus APIs, y escribí pruebas unitarias con Jasmine, trabajando con Scrum, Jira y Git.',
+      en: "I built web interfaces with Angular 8 and TypeScript for the bank's customer-facing products, integrated with its APIs, and wrote unit tests with Jasmine, working with Scrum, Jira and Git.",
     },
   },
   {
