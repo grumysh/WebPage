@@ -20,7 +20,7 @@ const LETTER_TO_COLOR: Record<string, Cell> = {
   c: 'coral',
 };
 
-// Onigiri con carita: arroz blanco con contorno, alga abajo, ojitos, cachetes y sonrisa
+// Onigiri con carita: arroz blanco con contorno, alga abajo, ojos grandes, cachetes y boquita en ω
 const ONIGIRI = [
   '........kkkkk........',
   '.......kwwwwwk.......',
@@ -28,12 +28,12 @@ const ONIGIRI = [
   '......kwwwwwwwk......',
   '.....kwwwwwwwwwk.....',
   '.....kwwwwwwwwwk.....',
-  '....kwwwwwwwwwwwk....',
-  '....kwwwwwwwwwwwk....',
-  '...kwwwkwwwwwkwwwk...',
-  '...kwwwkwwwwwkwwwk...',
-  '..kwwppwwkwkwwppwwk..',
-  '..kwwwwwwwkwwwwwwwk..',
+  '....kwwkkwwwkkwwk....',
+  '....kwwkkwwwkkwwk....',
+  '...kwwwkkwwwkkwwwk...',
+  '...kwwwwwwwwwwwwwk...',
+  '..kwwppwkwwwkwppwwk..',
+  '..kwwwwwwkkkwwwwwwk..',
   '.kwwwwwwwwwwwwwwwwwk.',
   '.kwwwwwkkkkkkkwwwwwk.',
   'kwwwwwwkkkkkkkwwwwwwk',
@@ -41,7 +41,7 @@ const ONIGIRI = [
   'kwwwwwwkkkkkkkwwwwwwk',
   '.kwwwwwkkkkkkkwwwwwk.',
   '..kkkkkkkkkkkkkkkkk..',
-];
+]
 
 // Arranca con el onigiri centrado en el tablero
 function startBoard(): Cell[] {

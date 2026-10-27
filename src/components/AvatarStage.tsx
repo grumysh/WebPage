@@ -132,7 +132,8 @@ export default function AvatarStage({ section, slotRef }: Props) {
             flight={flight}
             petLabel={t(ui.pet)}
             onReady={() => setReady(true)}
-            onPoke={() => fire('Dodge 01')}
+            // en la portada no esquiva: al moverse se monta encima de Stitch
+            onPoke={() => section !== 'hero' && fire('Dodge 01')}
           />
         </Suspense>
         {!ready && (

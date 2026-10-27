@@ -187,7 +187,8 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   transform-origin: 0 0; will-change: transform;
   pointer-events: none;
 }
-.avatar-canvas { pointer-events: auto; cursor: pointer; }
+.avatar-canvas { pointer-events: auto; }
+.avatar-stage[data-docked='true'] .avatar-canvas { cursor: pointer; }
 .avatar-stage[data-docked='true'] .avatar-canvas {
   /* centrada en los pies del avatar (quedan al ~81% de la altura del lienzo) */
   background: radial-gradient(ellipse 38% 9% at 50% 81%, rgba(167, 123, 255, 0.45), transparent 75%);
