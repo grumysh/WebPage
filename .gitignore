@@ -1,0 +1,29 @@
+# Dependencias y build
+node_modules
+dist
+dist-ssr
+*.local
+
+# Variables de entorno (claves, tokens)
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor y sistema operativo
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+desktop.ini
+*:Zone.Identifier
+
+# Archivos fuente pesados: en la web solo van las versiones optimizadas de public/
+*.gltf
+*.vxm
+*.vxa
+*.vxr
