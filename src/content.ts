@@ -362,7 +362,7 @@ export const career: { period: string; role: T; org: string; note: T; current?: 
   },
   {
     period: '2020 – 2021',
-    role: { es: 'Desarrolladora Frontend', en: 'Frontend Developer' },
+    role: { es: 'Desarrolladora Edge Junior (Frontend)', en: 'Junior Edge Developer (Frontend)' },
     org: 'Banco de Occidente',
     note: {
       es: 'Desarrollé interfaces web con Angular 8 y TypeScript para productos dirigidos a clientes del banco, integradas con sus APIs, y escribí pruebas unitarias con Jasmine y Karma, trabajando con Scrum, Jira y Git.',
@@ -509,12 +509,12 @@ export const awards: {
     href: 'https://www.youtube.com/watch?v=f3AEtVmAAuA',
   },
   {
-    kind: 'speaker',
+    kind: 'expo',
     year: '2017',
     title: { es: 'Expo Made With Unity · SOFA 2017', en: 'Made With Unity Expo · SOFA 2017' },
     text: {
-      es: 'Fuimos ponentes con nuestro juego Exorcist en la Expo Made With Unity, en el marco de SOFA 2017.',
-      en: 'We spoke about our game Exorcist at the Made With Unity Expo, part of SOFA 2017.',
+      es: 'Expusimos nuestro juego Exorcist en la Expo Made With Unity, en el marco de SOFA 2017.',
+      en: 'We exhibited our game Exorcist at the Made With Unity Expo, part of SOFA 2017.',
     },
     image: './img/eventos/sofa-2017-made-with-unity.jpg',
     imagePosition: '50% 40%',
