@@ -3,6 +3,8 @@
 Portafolio en React + Vite + Three.js (React Three Fiber) con mi avatar voxel como guía.
 El sistema de diseño está en [DESIGN.md](DESIGN.md).
 
+Publicada en https://grumysh.github.io/WebPage/
+
 ## Desarrollo
 
 ```bash
@@ -25,3 +27,9 @@ npm run avatar -- "/mnt/d/5. Arte Mio/8- voxelart propio/Mi Avatar/Grumysh.gltf"
 ```
 
 Genera `public/models/grumysh.glb` (~1,2 MB). Las animaciones por sección están en `src/components/AvatarStage.tsx`.
+
+## Publicación
+
+Cada push a `master` construye la web y la publica en GitHub Pages con el workflow
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). También se puede lanzar a mano
+desde la pestaña **Actions → Publicar en GitHub Pages → Run workflow**.
